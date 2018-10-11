@@ -93,6 +93,9 @@ int segmentTree::rangeUpdate(int left, int right, int valueAdd, int left_ind, in
 		tree[pos] = std::min(rangeUpdate(left, right, valueAdd, left_ind, mid_ind, 2 * pos + 1),
 							 rangeUpdate(left, right, valueAdd, mid_ind + 1, right_ind, 2 * pos + 2));
 	}
+	if (2 * pos + 2 < 2 * nodes - 1) {
+		tree[pos] = std::min(tree[2 * pos + 1], tree[2 * pos + 2]);
+	}
 }
 
 int segmentTree::nextPowerOf2(int n){
