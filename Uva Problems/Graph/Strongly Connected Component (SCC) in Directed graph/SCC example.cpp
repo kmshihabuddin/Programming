@@ -99,20 +99,21 @@ void directedTarjanSCC::tarjanSCC(int u) {
 		if (visited[v]) {
 			dfs_low[u] = std::min(dfs_low[u], dfs_low[v]);
 		}
+	}
 
-		if (dfs_low[u] == dfs_num[u]) {
-			allSCC.push_back({});
-			while (true) {
-				int v = S.back();
-				S.pop_back();
-				visited[v] = false;
-				allSCC[allSCC.size() - 1].push_back(v);
-				if (u == v) {
-					break;
-				}
+	if (dfs_low[u] == dfs_num[u]) {
+		allSCC.push_back({});
+		while (true) {
+			int v = S.back();
+			S.pop_back();
+			visited[v] = false;
+			allSCC[allSCC.size() - 1].push_back(v);
+			if (u == v) {
+				break;
 			}
 		}
 	}
+	
 }
 
 
