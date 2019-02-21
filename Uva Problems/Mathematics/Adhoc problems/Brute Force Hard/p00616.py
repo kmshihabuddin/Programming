@@ -5,13 +5,6 @@ Created on Mon Feb 18 22:08:34 2019
 @author: Shihab
 """
 
-def findDivisors(n,divisors):
-    var=2
-    while var*var<=n:
-        if n%var==0:
-            divisors.append(var)
-        var+=1
-    return 
 
 def isValid(total,people):
     for _ in range(people):
@@ -26,11 +19,10 @@ total=int(input())
 
 while total>=0:
     
-    divisors=[]
-    findDivisors(total-1,divisors)
+    divisors=list(range(20,1,-1))
     
     res=-1
-    for divisor in divisors[::-1]:
+    for divisor in divisors:
         if isValid(total,divisor):
             res=divisor
             break
